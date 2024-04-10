@@ -1,0 +1,492 @@
+/* Navbar styles */
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    color: #eeb714;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+    color: #212529;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #9ba8b6;
+}
+
+.navbar-nav .nav-link {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        margin-left: auto;
+    }
+}
+
+/*footer style*/
+.footer
+{
+    
+    padding:0%;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.footer-head
+{
+    font-style: "roboto";
+    text-align: left;
+    padding-bottom: 15%;
+    color: #000000;
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+.footer-head:hover
+{
+    color: #575555;
+}
+.footer-para
+{
+    padding: 2%;
+    color: #918a8a;
+    font-weight: 300;
+    margin-bottom: 0%;
+    line-height: 35px;
+}
+.icon-social
+{
+    padding:7% 1.5% 1%;
+}
+.links-foot
+{
+    color: #918a8a;
+    padding: 1%;
+    font-family: 'roboto';
+    font-weight: 300;
+}
+
+.newsletter-section {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.newsletter-section p {
+    margin-bottom: 15px;
+}
+
+.newsletter-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-section input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.newsletter-section button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-section button:hover {
+    background-color: #0056b3;
+}
+/* contact */
+.contact-text{
+    float: right;
+}
+.contact-card{
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 9%;
+    padding-right: 9%;
+}
+.fa-linkedin{
+    color:  #0A66C2;
+}
+.fa-linkedin:hover{
+    color: rgb(47, 47, 137);
+}
+.left{
+    padding-right: 9%;
+}
+/* signup */
+.imagebg {
+    background-image: url("/images/bg-6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 5%;
+    padding-bottom: 15%;
+}
+
+.signup {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 4%;
+    padding: 3%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sign-up-input {
+    margin: 0% 3%;
+    padding-bottom: 3%;
+}
+
+.sign-up-heading {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.sign-up-label {
+    font-weight: 600;
+}
+
+.sign-icon {
+    padding: 2%;
+    padding-bottom: 5%;
+}
+
+.sign-up {
+    padding: 7%;
+}
+
+.form-label {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.form-check-label {
+    font-size: 1rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+
+
+/* Main container */
+main {
+    margin: 20px;
+}
+
+/* Page title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* User information */
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style for user data */
+.user-data {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* email */
+#email
+{
+    padding:5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.email-title
+{
+    text-align: center;
+    font-family: "poppins";
+    font-weight: 700;
+    font-size: 45px;
+}
+.lower
+{
+    font-family: "roboto";
+    font-weight:400;
+    font-size: 20px;
+}
+#email-bt
+{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #258c66;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+#email-bt:hover{
+    background-color: #e2dbdb;
+}
+
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.student-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.student-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.student-card p {
+    margin: 5px 0;
+}
+
+.student-card strong {
+    font-weight: bold;
+}
+/* header section */
+.header img
+{
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+} 
+.header
+{
+    margin: 0%;
+    padding: 3% 10%;
+    background-image: url("/images/bg2.png") ;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+.heading-box{
+   
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+   
+}
+.header-title-1
+{
+    text-shadow: 4px 4px rgb(236, 112, 3);
+    padding-top: 10%;
+    padding-bottom: 10%;
+    font-family: "montserrat";
+    font-weight: 900;
+    font-size:45px;
+    padding-left: 10%;
+    padding-right: 10%;
+    line-height: 70px;
+    text-align: left;
+    animation-duration: 2s;
+    animation-name: slidein1;
+
+}
+.header-title-2
+{
+    animation-duration: 2s;
+    animation-name: slidein2;
+    text-shadow: 3px 3px rgb(202, 95, 1);
+    padding-top: 0%;
+    padding-bottom: 45%;
+    font-family: "Dancing script";
+    font-weight: 700;
+    font-size:40px;
+    padding-left: 5%;
+    letter-spacing: 1px;
+    padding-right: 10%;
+    line-height: 50px;
+}
+.header-para
+{
+    padding-top:40%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 25px;
+    font-family: "rootob";
+    text-shadow: 2px 2px black;
+    line-height: 45px;
+    letter-spacing: 3px;
+
+}
+.para-title
+{
+    font-family: "alex brush";
+    font-size: 40px;
+}
+/* objective section */
+#features
+{
+    padding: 0 7.5% 7.5% 7.5%;
+   
+    text-align: center;background-color: white;  
+}
+
+.ob-icon{
+height: 70px;
+margin-top: 5%;
+}
+.icons
+{
+    margin-top: 2rem;
+    margin-bottom: rem;
+    color: #EE7214;
+}
+.feature1
+{
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+.icon-heading
+{
+    font-family: "poppins";
+    padding: 5%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 40px;
+}
+.icon-para
+{
+    font-family: "roboto";
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: rgb(137, 128, 128);
+}
+/* animations */
+@keyframes slidein2{
+    from {
+      transform: translateY(10%); /* Start from below the screen */
+    }
+    to {
+      transform: translateY(0); /* Slide to its original position */
+    }
+  }
+  
+  @keyframes slidein1 {
+    from {
+      transform: translateX(10%); /* Start from the right of the screen */
+    }
+    to {
+      transform: translateX(0); /* Slide to its original position */
+    }
+  }
+  /* plans */
+  .service-cards
+  {
+    background-color:transparent;
+    color:#ffffff;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    border-style:solid;
+    border-width: 6px;
+    border-color:#ffffff;
+    border-radius: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-bottom: 7.5%;
+    
+    
+    transition: transform 0.6s;
+    
+  }
+  
+  .service-cards:hover{
+    animation-play-state: paused;
+    transform: rotate(10deg) scale(1.1);}

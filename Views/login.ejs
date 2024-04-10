@@ -1,0 +1,25 @@
+<%-include("partial/header") -%>
+<div class="imagebg">
+    <center>
+        <h1 class="sign-up-heading">Log In</h1>
+        <a href=""><i class="fa-brands fa-google fa-4x sign-icon" style="color: white;"></i></a>
+        <a href=""><i class="fa-brands fa-github fa-4x sign-icon" style="color: white;"></i></a>
+        <a href=""><i class="fa-brands fa-facebook fa-4x sign-icon" style="color: white;"></i></a>
+    </center>
+    <div class="signup">
+        <form class="sign-up-input  sign-up" action="/login" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label sign-up-label">Username</label>
+                <input type="text" class="form-control" id="loginUsername" name="loginUsername" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label sign-up-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" name="loginPassword" required>
+            </div>
+            <div class="d-grid gap-2">            
+                <button type="submit" class="btn btn-success">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include("partial/footer") -%>

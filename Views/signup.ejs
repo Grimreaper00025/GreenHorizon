@@ -1,0 +1,92 @@
+<%- include("partial/header") -%>
+<div class="imagebg">
+  <center>
+    <h1 class="sign-up-heading">Sign Up</h1>
+    <a href="/auth/google"><i class="fa-brands fa-google fa-4x sign-icon" style="color: rgb(0, 0, 0);"></i></a>
+    <a href="/auth/github"><i class="fa-brands fa-github fa-4x sign-icon" style="color: rgb(0, 0, 0);"></i></a>
+    <a href="/auth/facebook"><i class="fa-brands fa-facebook fa-4x sign-icon" style="color: #1877F2;"></i></a>
+  </center>
+  <div class="signup">
+    <form class="sign-up-form" action="/signup" method="post">
+      <div class="form-group mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="mobno" class="form-label">Mobile No.</label>
+        <input type="tel" class="form-control" id="mobno" name="mobno" pattern="[0-9]{10}" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group mb-3">
+        <label for="school" class="form-label">School</label>
+        <input type="text" class="form-control" id="school" name="school">
+      </div>
+      <div class="form-group mb-3">
+        <label for="course" class="form-label">Course</label>
+        <input type="text" class="form-control" id="course" name="course">
+      </div>
+      <div class="form-group mb-3">
+        <label for="degree" class="form-label">Degree</label>
+        <input type="text" class="form-control" id="degree" name="degree">
+      </div>
+      <div class="form-group mb-3">
+        <label for="passout" class="form-label">Passout Year</label>
+        <input type="number" class="form-control" id="passout" name="passout">
+      </div>
+      <div class="form-group mb-3">
+        <label for="currentYear" class="form-label">Current Year of Study</label>
+        <input type="number" class="form-control" id="currentYear" name="currentYear">
+      </div>
+      <div class="form-group mb-3">
+        <label for="linkedProfile" class="form-label">Linked Profile</label>
+        <input type="text" class="form-control" id="linkedProfile" name="linkedProfile">
+      </div>
+      <div class="form-group mb-3">
+        <label for="github" class="form-label">GitHub Profile</label>
+        <input type="text" class="form-control" id="github" name="github">
+      </div>
+      <div class="form-group mb-3">
+        <label for="skills" class="form-label">Skills (comma-separated)</label>
+        <input type="text" class="form-control" id="skills" name="skills">
+      </div>
+      <div class="form-group mb-3">
+        <label for="pastProjects" class="form-label">Past Projects (comma-separated)</label>
+        <input type="text" class="form-control" id="pastProjects" name="pastProjects">
+      </div>
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="termscheck" required>
+        <label class="form-check-label" for="termscheck">I agree to the terms and conditions</label>
+      </div>
+      <div class="d-grid gap-2" style="margin-top: 1rem;">
+        <button type="submit" class="btn btn-success">Sign Up</button>
+      </div>
+      <div class="d-grid gap-2" style="text-align: center; margin-top: 1rem;">
+        <p>Already have an Account? <a href="/login">Log In</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include("partial/footer") -%>

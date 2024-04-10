@@ -1,0 +1,30 @@
+<%- include("partial/header") -%>
+
+<main>
+    <div class="container">
+        <h1>All Students</h1>
+        <div class="student-list">
+            <% users.forEach(user => { %>
+                <div class="student-card">
+                    <h3><%= user.name %></h3>
+                    <p><strong>Mobile Number:</strong> <%= user.mobno %></p>
+                    <p><strong>Username:</strong> <%= user.username %></p>
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                    <p><strong>School:</strong> <%= user.school %></p>
+                    <p><strong>Course:</strong> <%= user.course %></p>
+                    <p><strong>Degree:</strong> <%= user.degree %></p>
+                    <p><strong>Passout Year:</strong> <%= user.passout %></p>
+                    <p><strong>Country:</strong> <%= user.country %></p>
+                    <% if (user.skills) { %>
+                        <p><strong>Skills:</strong> <%= user.skills %></p>
+                    <% } %>
+                    <p><strong>Linked Profile:</strong> <%= user.linkedProfile %></p>
+                    <p><strong>GitHub Profile:</strong> <%= user.github %></p>
+                    <p><strong>Past Projects:</strong> <%= user.pastProjects %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<%- include("partial/footer") -%>
