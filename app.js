@@ -218,25 +218,83 @@ app.get("/profile", function(req, res){
     else{res.redirect("/signup")};
 });
 
-app.get("/client", function(req,res){
-    res.render("client", { t: t });
-});
-
 app.get("/sendEmail", function(req, res){
     res.render("sendEmail", {t:t});
 });
-
-app.get("/student", async function(req, res){
-    try {
-        const users = await User.find({});
-        res.render("student", { t: t, users: users });
-    } catch (error) {
-        console.error("Error fetching users:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
+app.get("/carbon-calculator", function(req, res){
+    res.render("carbon-calculator", {t:t});
+});
+app.get("/savings", function(req, res){
+    res.render("savings", {t:t});
 });
 
-app.post("")
+
+
+
+app.post("/carbon-calculator",async function(req,res){    
+    var numpeople = req.body.numpeople;
+    var electricity=req.body.electricity;
+    var cylinders= req.body.cylinders;
+    var flights = req.body.flights;
+    var vehicle= req.body.vehicle;
+    var mileage =req.body.mileage;
+    var newspaper= req.body.newspaper;
+    var aluminium = req.body.aluminium;
+    var bus= req.body.bus;
+    var train = req.body.train;
+    var electricityprint= (electricity*0.82)/numpeople;
+    var cylinderprint = (cylinders*23.5)/numpeople;
+    var petrol= vehicle/mileage;
+    var petrolprint= (petrol*2.3)/numpeople;
+    var flightprint= (flights*242)/numpeople;
+    var busprint = (bus*0.1)/numpeople;
+    var trainprint = (train*0.27)/numpeople;
+    var foodprint=0;
+
+    if(req.body.meatLover==="re")
+    foodprint=foodprint+108;
+    else if(req.body.omnivore==="re")
+    foodprint=foodprint+83;
+    else if(req.body.vegetarian==="re")
+    foodprint=foodprint+55;
+    else if(req.body.vegan==="re")
+    foodprint=foodprint+46;
+    var footprint = (electricityprint+cylinderprint+petrolprint+flightprint+foodprint+busprint+trainprint);
+    console.log(footprint)
+    percentages=[((electricityprint/footprint))*100,((cylinderprint/footprint)*100),(((petrolprint+flightprint+trainprint+busprint)/footprint))*100,((foodprint/footprint)*100)];
+    
+    if(newspaper=== undefined)
+    footprint=footprint+89/numpeople;
+    if(aluminium=== undefined)
+    footprint=footprint+75/numpeople;
+    let area=footprint/2750;
+    area=area*2.471;
+    area=Math.round(area);
+    var indiaResult ;
+    var indiaResultSub;
+    
+   footprint=Math.round(footprint)
+    if(footprint>580)
+    {
+        indiaResult="Bad"
+        indiaResultSub="Your Emission levels exceed India's average by"+" "+Math.round((footprint)/5.80)+"%"
+    }
+    else if(footprint<=580)
+    {
+        indiaResult="Great!"
+        indiaResultSub="Your Emission levels are below India's average by"+" "+Math.round((580-footprint)/5.80)+"%"
+    }
+
+    res.render("result-carbon",{footprint:footprint,percentages:percentages,indiaResult:indiaResult,indiaResultSub:indiaResultSub,area:area,t:t})
+});
+app.post("/savings", function(req,res)
+{
+    var number=req.body.number;
+    var unit=req.body.unit;
+    var cost=number*unit;
+    console.log(cost);
+    res.render("result-savings",{cost:cost,t:t});
+});
 app.listen(3000,function()
 {
     console.log("Server Started on port on 3000");

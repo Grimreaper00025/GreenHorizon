@@ -1,0 +1,55 @@
+<%-include("partial/header") -%>
+<div class=" calc-bg" >
+    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Savings</h1>
+    <div id="steps">
+        <form action="/savings" method="post">
+        <div class="step" id="step1">
+            <h2>Enter Your Electricity Information</h2>
+            <div class="mb-3 calc-input">
+              <label for="numpeople" class="form-label">Number of Units Used This Month</label>
+              <input type="number" class="form-control"  name="number" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="electricity" class="form-label">Cost of each Unit(in KW/h)</label>
+              <input type="number" class="form-control" name="unit" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 calc-input">
+                <label for="cylinders" class="form-label">Enter Your State</label>
+                <select class="form-select form-select mb-3" aria-label="Large select example">
+                    <option selected>Choose</option>
+                    <option value="1">Andhra Pradesh</option>
+                    <option value="2">Arunachal Pradesh</option>
+                    <option value="3">Assam</option>
+                    <option value="4">Bihar</option>
+                    <option value="5">Chhattisgarh</option>
+                    <option value="6">Goa</option>
+                    <option value="7">Gujarat</option>
+                    <option value="8">Haryana</option>
+                    <option value="9">Himachal Pradesh</option>
+                    <option value="10">Jharkhand</option>
+                    <option value="11">Karnataka</option>
+                    <option value="12">Kerela</option>
+                    <option value="13">Madhya Pradesh</option>
+                    <option value="14">Maharashtra</option>
+                    <option value="15">Manipur</option>
+                    <option value="16">Meghalaya</option>
+                    <option value="17">Mizoram</option>
+                    <option value="18">Nagaland</option>
+                    <option value="19">Odisha</option>
+                    <option value="20">Punjab</option>
+                    <option value="21">Rajasthan</option>
+                    <option value="22">Sikkim</option>
+                    <option value="23">Tamil Nadu</option>
+                    <option value="24">Telangana</option>
+                    <option value="25">Tripura</option>
+                    <option value="26">Uttar Pradesh</option>
+                    <option value="27">Uttarakhand</option>
+                    <option value="28">West Bengal</option>
+                  </select>
+              </div>
+            <div class="d-grid gap-2">
+           <button type="submit" class="btn btn-warning next-button" >Calculate</button>
+        </div>  
+    </div>
+</div>
+<%-include("partial/footer") -%>      

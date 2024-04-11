@@ -1,0 +1,154 @@
+<%-include("partial/header") -%>
+  <div class=" calc-bg" >
+    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Footprint</h1>
+
+    <div id="steps">
+      <form action="/carbon-calculator" method="post">
+      <div class="step" id="step1">
+        <h2>Step 1: Enter Household Information</h2>
+        
+            <div class="mb-3 calc-input">
+              <label for="numpeople" class="form-label">Number of people in your house</label>
+              <input type="number" class="form-control"  name="numpeople" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="electricity" class="form-label">Electricity used per month (in KW/h)</label>
+              <input type="number" class="form-control" name="electricity" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 calc-input">
+                <label for="cylinders" class="form-label">Number of cylinders of l.p.g. used last month</label>
+                <input type="number" class="form-control" name="cylinders" id="exampleInputPassword1">
+              </div>
+              <div class="d-grid gap-2">
+            
+              
+          <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+      <div class="step" id="step2" style="display: none;">
+        <h2>Step 2: Enter Travel Information</h2>
+        
+            <div class="mb-3 calc-input">
+              <label for="flight" class="form-label">Flight Time (in hours) last month</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="flights">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="vehicle-distance" class="form-label" > Average Distance travelled by your vehicle (in kms) last month</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="vehicle">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="mileage" class="form-label" >Mileage of your Vehicle</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="mileage">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="bus" class="form-label" >Distance Travelled in Bus (in kms) Last Month</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="bus">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="train" class="form-label" >Distance Travelled By Train (in kms) Last Month</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="train">
+            </div>
+
+            <div class="d-grid gap-2">
+            
+              
+              <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+            </div>
+      </div>
+        
+      
+      <div class="step" id="step3" style="display: none;">
+        <h2>Step 3: You Are A</h2>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Meat Lover
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Average Omnivore
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Vegetarian
+            </label>
+          </div>
+            
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Vegan
+            </label>
+          </div>
+        </div>>
+        
+            <div class="d-grid gap-2">
+            
+              
+              <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+            </div>
+           
+      </div>
+
+      <div class="step" id="step4" style="display: none;">
+        <h2>Step 4: Do YOU?</h2>
+            <div class="mb-3">
+              <input class="form-check-input" type="checkbox" value="re" name="newspaper" id="flexCheckDefault">
+              <label for="recycle" class="form-check-label">Recycle Newspaper</label>
+            </div>
+            <div class="mb-3">
+              <input class="form-check-input" type="checkbox" value="re" name="Aluminium" id="flexCheckDefault">
+                <label for="recycle" class="form-check-label">Recycle Aluminium</label>
+            </div>
+            <div class="mb-3 ">
+              <input class="form-check-input" type="checkbox" value="re" name="Plastic" id="flexCheckDefault">
+                <label for="recycle" class="form-check-label">Recycle Plastic</label>
+                
+            </div>
+            <div class="mb-3" >
+              <input class="form-check-input" type="checkbox" value="re" name="Glass" id="flexCheckDefault">
+                <label for="recycle" class="form-check-label">Recycle Glass</label>
+                
+            </div>
+            <div class="d-grid gap-2">
+            
+            
+            <button type="submit" class="btn btn-primary next-button" >Find Out</button>
+          </div>
+          
+      </div>
+
+    </form>
+    </div>
+     
+
+      
+    </div>
+
+
+
+  
+  <script>
+    
+    const steps = document.querySelectorAll('.step');
+    let currentStep = 0;
+
+    function nextStep() {
+      steps[currentStep].style.display = 'none';
+      currentStep++;
+      steps[currentStep].style.display = 'block';
+      
+    }
+  </script>
+<%- include("partial/footer") -%>
