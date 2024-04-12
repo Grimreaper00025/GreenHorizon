@@ -10,7 +10,7 @@ const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const router = express.Router();
 
-var t = 0;
+var test = 0;
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://inficos0520:yj9vtx3zJhYSgw6i@gh.zc3syn3.mongodb.net/?retryWrites=true&w=majority&appName=GH/userDB');
@@ -82,20 +82,10 @@ const userSchema = new mongoose.Schema({
         index: true
      },
      gender: String,
-     school: String,
-     course: String,
-     degree: String,
-     passout: Number,
-     currentYear: Number,
-     linkedProfile: String,
-     github: String,
-     skills: [String],
-     pastProjects: [String],
-     country: String,
      password: {
         type: String,
         required: [true, 'Password is required'],
-        minlength: [6, 'Password must be at least 6 characters long'],
+        minlength: [8, 'Password must be at least 8 characters long'],
      },
      confirmPassword: String
 });
@@ -103,34 +93,34 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 app.get("/", function(req, res) {
-    res.render("home", { t: t });
+    res.render("home", { test: test });
 });
 
 app.get("/home", function(req, res){
-    res.render("home", {t:t});
+    res.render("home", {test:test});
 });
 
 app.post("/",function(req,res){
-    res.render("home", {t:t});
+    res.render("home", {test:test});
 });
 
 app.post("/#", function(req,res){
-    res.render("home", {t:t});
+    res.render("home", {test:test});
 })
 
 app.get("/signup",function(req,res)
 {
-    res.render("signup", { t: t });
+    res.render("signup", { test: test });
 });
 
 app.get("/login",function(req,res)
 {
-    res.render("login", { t: t });
+    res.render("login", { test: test });
 });
 
-if (t===0)
+if (test===0)
 {app.post("/signup", async function (req, res) {
-    const { name, mobno, username, email, gender, school, course, degree, passout, currentYear, linkedProfile, github, skills, pastProjects, password, confirmPassword } = req.body;
+    const { name, mobno, username, email, gender,password, confirmPassword } = req.body;
   
 
     if (password !== confirmPassword) {
@@ -141,25 +131,21 @@ if (t===0)
             mobno,
             username,
             email,
-            gender, school, course, degree, passout, currentYear, linkedProfile, github, skills, pastProjects
+            gender
         });
     }
     
     try {
 
         const hashedPassword = await bcrypt.hash(password, 10);
-    
-
         const newUser = new User({
             name,
             mobno,
             username,
             email,
-            gender, school, course, degree, passout, currentYear, linkedProfile, github, skills, pastProjects,
+            gender, 
             password: hashedPassword
         });
-    
-
         await newUser.save();
     
         res.redirect("/login"); 
@@ -192,7 +178,7 @@ app.post("/login", async function (req, res) {
 
         if (isPasswordMatch) {
           
-            t=1;
+            test=1;
             console.log("User authenticated successfully");
             res.redirect("/");
         } else {
@@ -206,94 +192,199 @@ app.post("/login", async function (req, res) {
     }
 });
 
-if(t===1){
+if(test===1){
     app.post("/profile", async function (req, res){
 
     })
 }
 
 app.get("/profile", function(req, res){
-    if(t===1)
-    {res.render("profile", {t: t, user: user});}
+    if(test===1)
+    {res.render("profile", {test: test, user: user});}
     else{res.redirect("/signup")};
 });
 
 app.get("/sendEmail", function(req, res){
-    res.render("sendEmail", {t:t});
+    res.render("sendEmail", {test:test});
 });
 app.get("/carbon-calculator", function(req, res){
-    res.render("carbon-calculator", {t:t});
+    res.render("carbon-calculator", {test:test});
 });
 app.get("/savings", function(req, res){
-    res.render("savings", {t:t});
+    res.render("savings", {test:test});
 });
 
+app.post('/carbon-calculator', (req, res) => {
+    console.log(req.body);
+    const numPeople = parseInt(req.body.numpeople);
+    const housingSize = parseInt(req.body.Size);
+    const electricityConsumption = parseInt(req.body.Electricty);
+    const bedrooms = parseInt(req.body.Bedrooms);
+    const electronic=parseInt(req.body.Electronics);
+    const housingType = req.body.housing_type;
+    const laptop = req.body.laptop === 'on' ? true : false;
+    const tv = req.body.tv === 'on' ? true : false;
+    const washing = req.body.washing === 'on' ? true : false;
+    const fridge = req.body.fridge === 'on' ? true : false;
+    const  ac= req.body.ac === 'on' ? true : false;
+    const table = req.body.table === 'on' ? true : false;
+    const solarPanel=req.body.solar_panel==='on'?true:false;
+    const solarWaterHeater = req.body.solar_water_heater === 'on' ? true : false;
+    const otherCleanEnergy = req.body.other_clean_energy === 'on' ? true : false;
+    const energySavingBulbs = req.body.energy_saving_bulbs === 'on' ? true : false;
+    const vehicleType = req.body.Vehicle;
+    const distanceTravelled = parseInt(req.body.distance_travelled);
+    const flightHours = parseInt(req.body.flight_hours);
+    const offsetFlights = req.body.offset_flights === 'on' ? true : false;
+    const housingDiet = req.body.housing_diet;
+    const clothesFootwearSpending = parseInt(req.body.clothes_footwear_spending);
+    const eatOutFrequency = parseInt(req.body.eat_out_frequency);
+    const healthBeautySpending = parseInt(req.body.health_beauty_spending);
+    let carbonCredit=0;
 
-
-
-app.post("/carbon-calculator",async function(req,res){    
-    var numpeople = req.body.numpeople;
-    var electricity=req.body.electricity;
-    var cylinders= req.body.cylinders;
-    var flights = req.body.flights;
-    var vehicle= req.body.vehicle;
-    var mileage =req.body.mileage;
-    var newspaper= req.body.newspaper;
-    var aluminium = req.body.aluminium;
-    var bus= req.body.bus;
-    var train = req.body.train;
-    var electricityprint= (electricity*0.82)/numpeople;
-    var cylinderprint = (cylinders*23.5)/numpeople;
-    var petrol= vehicle/mileage;
-    var petrolprint= (petrol*2.3)/numpeople;
-    var flightprint= (flights*242)/numpeople;
-    var busprint = (bus*0.1)/numpeople;
-    var trainprint = (train*0.27)/numpeople;
-    var foodprint=0;
-
-    if(req.body.meatLover==="re")
-    foodprint=foodprint+108;
-    else if(req.body.omnivore==="re")
-    foodprint=foodprint+83;
-    else if(req.body.vegetarian==="re")
-    foodprint=foodprint+55;
-    else if(req.body.vegan==="re")
-    foodprint=foodprint+46;
-    var footprint = (electricityprint+cylinderprint+petrolprint+flightprint+foodprint+busprint+trainprint);
-    console.log(footprint)
-    percentages=[((electricityprint/footprint))*100,((cylinderprint/footprint)*100),(((petrolprint+flightprint+trainprint+busprint)/footprint))*100,((foodprint/footprint)*100)];
-    
-    if(newspaper=== undefined)
-    footprint=footprint+89/numpeople;
-    if(aluminium=== undefined)
-    footprint=footprint+75/numpeople;
-    let area=footprint/2750;
-    area=area*2.471;
-    area=Math.round(area);
-    var indiaResult ;
-    var indiaResultSub;
-    
-   footprint=Math.round(footprint)
-    if(footprint>580)
+    if(housingType==="stand_alone")
     {
-        indiaResult="Bad"
-        indiaResultSub="Your Emission levels exceed India's average by"+" "+Math.round((footprint)/5.80)+"%"
+        carbonCredit=carbonCredit+(housingSize*numPeople*35);
+        carbonCredit=carbonCredit+(housingSize*3.5*bedrooms*numPeople);
+        carbonCredit=carbonCredit+(4.5*electricityConsumption);
+        console.log(carbonCredit);
     }
-    else if(footprint<=580)
+    else if(housingType==="flat")
     {
-        indiaResult="Great!"
-        indiaResultSub="Your Emission levels are below India's average by"+" "+Math.round((580-footprint)/5.80)+"%"
+        carbonCredit=carbonCredit+(housingSize*numPeople*25);
+        carbonCredit=carbonCredit+(housingSize*2.5*bedrooms*numPeople);
+        carbonCredit=carbonCredit+(3.5*electricityConsumption);
+    }
+    else{
+        carbonCredit=carbonCredit+(housingSize*numPeople*15);
+        carbonCredit=carbonCredit+(housingSize*1.5*bedrooms*numPeople);
+        carbonCredit=carbonCredit+(2.5*electricityConsumption);
     }
 
-    res.render("result-carbon",{footprint:footprint,percentages:percentages,indiaResult:indiaResult,indiaResultSub:indiaResultSub,area:area,t:t})
+    if(laptop)
+    {
+        carbonCredit=carbonCredit+750;
+    }
+    if(tv)
+    {
+        carbonCredit=carbonCredit+300;
+    }
+    if(washing)
+    {
+        carbonCredit=carbonCredit+600;
+    }
+    if(fridge)
+    {
+        carbonCredit=carbonCredit+1350;
+    }
+    if(ac)
+    {
+        carbonCredit=carbonCredit+3000;
+    }
+    if(table)
+    {
+        carbonCredit=carbonCredit+150;
+    }
+
+    if(solarPanel)
+    {
+        carbonCredit=carbonCredit-15000;
+    }
+    if(solarWaterHeater)
+    {
+        carbonCredit=carbonCredit-1800;
+    }
+    if(otherCleanEnergy)
+    {
+        carbonCredit=carbonCredit-13200;
+    }
+    if(energySavingBulbs)
+    {
+        carbonCredit=carbonCredit-1350;
+    }
+
+    carbonCredit=carbonCredit+clothesFootwearSpending+healthBeautySpending;
+
+    if(offsetFlights)
+    {
+        carbonCredit=carbonCredit-4200;
+    }
+
+    if(vehicleType==="car")
+    {
+        carbonCredit=carbonCredit+(500*distanceTravelled);
+    }
+    else if(vehicleType==="bike")
+    {
+        carbonCredit=carbonCredit+(200*distanceTravelled);
+    }
+    else if(vehicleType==="public")
+    {
+        carbonCredit=carbonCredit+(50*distanceTravelled);
+    }
+    else if(vehicleType==="e-car")
+    {
+        carbonCredit=carbonCredit+(300*distanceTravelled);
+    }else if(vehicleType==="e-bike")
+    {
+        carbonCredit=carbonCredit+(50*distanceTravelled);
+    }
+    else if(vehicleType==="cycle")
+    {
+        carbonCredit=carbonCredit+(20*distanceTravelled);
+    }
+    else 
+    {
+        carbonCredit=carbonCredit+(10*distanceTravelled);
+    }
+
+    carbonCredit=carbonCredit+(1700*numPeople*flightHours);
+
+    if(housingDiet==="Meat_love")
+    {
+        carbonCredit=carbonCredit+(numPeople*900*eatOutFrequency);
+    }
+    else if(housingDiet==="Meat")
+    {
+        carbonCredit=carbonCredit+(numPeople*500*eatOutFrequency);
+    }
+    else if(housingDiet==="Vegetarian")
+    {
+        carbonCredit=carbonCredit+(numPeople*200*eatOutFrequency);
+    }
+    else
+    {
+        carbonCredit=carbonCredit+(numPeople*100*eatOutFrequency);
+    }
+
+    res.render('result-carbon', { carbonCredit: carbonCredit ,test:test});
 });
+
 app.post("/savings", function(req,res)
 {
-    var number=req.body.number;
-    var unit=req.body.unit;
+    var number=parseInt(req.body.number);
+    var unit=parseInt(req.body.unit);
     var cost=number*unit;
     console.log(cost);
-    res.render("result-savings",{cost:cost,t:t});
+    var area=parseInt(req.body.area);
+    var solarCost=((Math.floor(area/120))*140)*unit;
+    console.log(solarCost);
+    var savings=Math.abs(solarCost-cost);
+    console.log(savings);
+    var percentage=(savings/cost)*100;
+    console.log(percentage);
+    var costSolar=50000*(Math.floor(area/120));
+    console.log(costSolar);
+    var months=costSolar/solarCost;
+    console.log(months);
+    var years=months/12;
+    console.log(years);
+    var Percentage=100-parseInt(percentage);
+    console.log(Percentage);
+    var Years=parseInt(Math.round(years));
+    console.log(Years);
+
+    res.render("result-savings",{Percentage:Percentage,test:test,Years:Years});
 });
 app.listen(3000,function()
 {

@@ -1,17 +1,21 @@
 <%-include("partial/header") -%>
-<div class=" calc-bg" >
-    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Savings</h1>
-    <div id="steps">
+<div class="calc-bg" style="background-image: url('/images/Saving1.jpeg'); background-size: cover;" >
+    <h1 class="sign-up-heading" style="text-align: center; margin-bottom: 5%;">Calculate Your Savings</h1>
+    <div class="steps">
         <form action="/savings" method="post">
         <div class="step" id="step1">
-            <h2>Enter Your Electricity Information</h2>
+            <h2 class="saving-heading">Tell Us  </h2>
             <div class="mb-3 calc-input">
-              <label for="numpeople" class="form-label">Number of Units Used This Month</label>
+              <label for="numpeople" class="form-label">Number of Units Used This Month(in kWh)</label>
               <input type="number" class="form-control"  name="number" aria-describedby="emailHelp">
             </div>
             <div class="mb-3 calc-input">
-              <label for="electricity" class="form-label">Cost of each Unit(in KW/h)</label>
+              <label for="electricity" class="form-label">Cost of each Unit(in &#8377)</label>
               <input type="number" class="form-control" name="unit" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 calc-input">
+              <label for="area" class="form-label">Approximate Area of your roof exposed to Sun(sq. feet)</label>
+              <input type="number" class="form-control" name="area" id="exampleInputPassword1">
             </div>
             <div class="mb-3 calc-input">
                 <label for="cylinders" class="form-label">Enter Your State</label>
@@ -51,5 +55,6 @@
            <button type="submit" class="btn btn-warning next-button" >Calculate</button>
         </div>  
     </div>
+</div>
 </div>
 <%-include("partial/footer") -%>      

@@ -1,3 +1,130 @@
-<%-include("partial/header") -%>
-<h1><%= cost %></h1>
-<%-include("partial/footer") -%>
+<%- include("partial/header") -%>
+<div  style="background-image: url('/images/result-bg.png'); background-repeat: no-repeat; background-size: cover;">
+<h1 class="heading-result"><span >Go Solar,</span><span >Save Big</span></h1>
+<h2 class="heading-sub">See How Solar Saves You Money!"
+</h2>
+</div>
+<!-- <h1><%= Years %></h1> -->
+<div class="row">
+    <div class="col-lg-6">
+         <div style="padding-left: 40%; padding-top: 5%;"><img src="/images/piggy-bank.png" style="width: 35%;" alt=""></div>
+        <h1 class="h1r">
+            Slash Your Bills by Up To <span id="myNumber"><%= Percentage %> </span>%
+        </h1>
+    </div>
+    <div class="col-lg-6">
+        <div class="chart"><canvas id="myChart" ></canvas></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="chart"><canvas id="myChart1" ></canvas></div>
+    </div>
+    <div class="col-lg-6">
+        <div style="padding-left: 40%; padding-top: 5%;"><img src="/images/earning.png" style="width: 35%;" alt=""></div>
+        <h1 class="h2r">
+            Watch your investment replenish in just  <span id="myNum"><%= Years %> </span>years!
+        </h1>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const percentage = <%= Percentage %> ;
+    const originalCost = 100;
+    console.log("Percentage:", <%= Percentage %>);
+
+    const newCost = 100 - percentage;
+
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Original Cost', 'New Cost'],
+            datasets: [{
+                label: 'Cost Comparison',
+                data: [originalCost, newCost],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)', 
+                    'rgba(75, 192, 192, 0.5)' 
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',  
+                    'rgba(75, 192, 192, 1)'   
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    function generateChartData(years) {
+
+  const numBars = years;
+  const percentageIncrement = 100 / numBars;
+
+  const labels = [];
+  const data = [];
+  for (let i = 1; i <= numBars; i++) {
+    labels.push(`Year ${i}`);
+    data.push(percentageIncrement * i);
+  }
+
+  return {
+    labels,
+    datasets: [{
+      label: 'Percentage Replenished',
+      backgroundColor: 'rgba(75, 192, 192, 0.5)', 
+      borderColor: 'rgba(75, 192, 192, 1)', 
+      borderWidth: 1,
+      data,
+    }]
+  };
+}
+
+
+const chartData = generateChartData(<%=Years%>);
+
+const ctx1 = document.getElementById('myChart1').getContext('2d');
+const myChart1 = new Chart(ctx1, {
+  type: 'bar',
+  data: chartData,
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          max: 100,
+        }
+      }]
+    }
+  }
+});
+    const targetNumber = <%=Percentage%>; 
+const element = document.getElementById("myNumber");
+let currentNumber = 0;
+
+const intervalId = setInterval(() => {
+  if (currentNumber === targetNumber) {
+    clearInterval(intervalId);
+  } else {
+    currentNumber++;
+    element.textContent = currentNumber;
+  }
+}, 50);
+</script>
+
+<%- include("partial/footer") -%>

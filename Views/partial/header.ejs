@@ -18,9 +18,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="icon" href="/images/fav.png" type="image/x-icon">
+
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" >
     <div class="container-fluid">
       <a class="navbar-brand logo-title" href="/">
         <img src="/images/logo1.png" style="height: 8%; width: 8%;" alt="" class="logo">
@@ -43,7 +44,7 @@
             <a class="nav-link" href="/sendEmail">Contact Us</a>
           </li>
           <li class="nav-item">
-            <% if (t) { %>
+            <% if (test) { %>
               <a class="nav-link" id="profile" href="/profile"><i class="fa-solid fa-user"></i></a>
             <% } else { %>
               <a class="nav-link" id="profile" href="/signup"><i class="fa-solid fa-user"></i></a>

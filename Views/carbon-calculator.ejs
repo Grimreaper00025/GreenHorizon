@@ -1,154 +1,174 @@
 <%-include("partial/header") -%>
   <div class=" calc-bg" >
-    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Footprint</h1>
-
-    <div id="steps">
-      <form action="/carbon-calculator" method="post">
-      <div class="step" id="step1">
-        <h2>Step 1: Enter Household Information</h2>
-        
-            <div class="mb-3 calc-input">
-              <label for="numpeople" class="form-label">Number of people in your house</label>
-              <input type="number" class="form-control"  name="numpeople" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3 calc-input">
-              <label for="electricity" class="form-label">Electricity used per month (in KW/h)</label>
-              <input type="number" class="form-control" name="electricity" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 calc-input">
-                <label for="cylinders" class="form-label">Number of cylinders of l.p.g. used last month</label>
-                <input type="number" class="form-control" name="cylinders" id="exampleInputPassword1">
+    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Carbon Credit</h1>
+      <div id="steps">
+        <form action="/carbon-calculator" method="post">
+        <div class="step" id="step1">
+          <h2>HouseHold</h2>
+              <div class="mb-3 calc-input">
+                <label for="numpeople" class="form-label">Number of people in your house</label>
+                <input type="number" class="form-control"  name="numpeople" aria-describedby="emailHelp">
               </div>
-              <div class="d-grid gap-2">
-            
-              
-          <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
-        </div>
-      </div>
+              <div class="mb-3 calc-input">
+                <label for="Size" class="form-label">Size of Housing</label>
+                <input type="number" class="form-control" name="Size" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3 calc-input">
+                <label for="Electricity" class="form-label">Electricity consumption(Kwh/Month)</label>
+                <input type="number" class="form-control"  name="Electricty" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3 calc-input">
+                  <label for="Bedrooms" class="form-label">How many bedrooms does your house have?</label>
+                  <input type="number" class="form-control" name="Bedrooms" id="exampleInputPassword1">
+                </div>
+                <label for="housing_type">Type of Housing:</label><br>
+                  <select id="housing_type" name="housing_type" required>
+                      <option value="stand_alone">Stand Alone</option>
+                      <option value="flat">Flat</option>
+                      <option value="shared">Shared</option>
+                  </select><br>
+                  <label for="energy_improvements">Home Energy Efficiency Improvements:</label><br>
+                  <input type="checkbox" id="solar_panel" name="solar_panel" value="solar_panel">
+                  <label for="solar_panel">Solar Panel Installation</label><br>
+                  
+                  <input type="checkbox" id="solar_water_heater" name="solar_water_heater" value="solar_water_heater">
+                  <label for="solar_water_heater">Solar Water Heater</label><br>
+                  
+                  <input type="checkbox" id="other_clean_energy" name="other_clean_energy" value="other_clean_energy">
+                  <label for="other_clean_energy">Other Clean Energy Source</label><br>
+                  
+                  <input type="checkbox" id="energy_saving_bulbs" name="energy_saving_bulbs" value="energy_saving_bulbs">
+                  <label for="energy_saving_bulbs">Energy Saving Light Bulbs</label><br>
+
+                  <label for="Electronics">In the last 12 months, have you bought any of these new household items?</label><br>
+                  <input type="checkbox" id="solar_panel" name="laptop" value="laptop">
+                  <label for="solar_panel">Laptop</label><br>
+                  <input type="checkbox" id="solar_water_heater" name="tv" value="tv">
+                  <label for="solar_water_heater">T.V.</label><br>
+                  <input type="checkbox" id="other_clean_energy" name="washing" value="washing">
+                  <label for="other_clean_energy">washing Machine</label><br>
+                  <input type="checkbox" id="energy_saving_bulbs" name="fridge" value="fridge">
+                  <label for="energy_saving_bulbs">Fridge</label><br>
+                  <input type="checkbox" id="energy_saving_bulbs" name="ac" value="ac">
+                  <label for="energy_saving_bulbs">A.C.</label><br>
+                  <input type="checkbox" id="energy_saving_bulbs" name="table" value="table">
+                  <label for="energy_saving_bulbs">Table</label><br>
+               <div class="d-grid gap-2">
+                  <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+              </div>
+         </div>
       <div class="step" id="step2" style="display: none;">
-        <h2>Step 2: Enter Travel Information</h2>
-        
-            <div class="mb-3 calc-input">
-              <label for="flight" class="form-label">Flight Time (in hours) last month</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="flights">
-            </div>
-            <div class="mb-3 calc-input">
-              <label for="vehicle-distance" class="form-label" > Average Distance travelled by your vehicle (in kms) last month</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="vehicle">
-            </div>
-            <div class="mb-3 calc-input">
-              <label for="mileage" class="form-label" >Mileage of your Vehicle</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="mileage">
-            </div>
-            <div class="mb-3 calc-input">
-              <label for="bus" class="form-label" >Distance Travelled in Bus (in kms) Last Month</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="bus">
-            </div>
-            <div class="mb-3 calc-input">
-              <label for="train" class="form-label" >Distance Travelled By Train (in kms) Last Month</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="train">
+        <h2>Transport</h2>
+            <label for="Vehicle">What type of vehicle you use most frequently?</label><br>
+            <select id="Vehicle" name="Vehicle" required>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="public">Public Transport</option>
+                <option value="e-car">Electric Car</option>
+                <option value="e-bike">Electric Bike</option>
+                <option value="walking">Walking</option>
+                <option value="cycle">Cycle</option>
+            </select><br>
+            <label for="customRange2" class="form-label">Average distance Travelled By all HouseHold Members(in Km)</label>
+            <input type="range" class="form-range" min="0" max="50" id="customRange2" name="distance_travelled">
+            <p id="rangeValue">25</p>
+            <label for="customRange3" class="form-label">Average flight hours of all house hold members(in hr)</label>
+            <input type="range" class="form-range" min="0" max="30" id="customRange3" name="flight_hours">
+            <p id="rangeValue1">15</p>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="offset_flights">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Do you offset Your Flights</label>
             </div>
 
             <div class="d-grid gap-2">
-            
-              
               <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
             </div>
       </div>
-        
-      
       <div class="step" id="step3" style="display: none;">
-        <h2>Step 3: You Are A</h2>
-        <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Meat Lover
-            </label>
-          </div>
+        <h2>Lifestyle</h2>
+        <label for="housing_diet">What is Household preferrd Diet?</label><br>
+        <select id="housing_diet" name="housing_diet" required>
+            <option value="Meat_love">Meat lover</option>
+            <option value="Meat">Meat in some meals</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+        </select><br>
+        <label for="customRange4" class="form-label">In a typical month, how much do you spend on clothes and footwear?</label>
+        <input type="range" class="form-range" min="0" max="60000" id="customRange4" name="clothes_footwear_spending">
+        <p id="rangeValue2">30000</p>
+        <label for="customRange5" class="form-label">How many times a week does your family eat out?</label>
+        <input type="range" class="form-range" min="0" max="7" id="customRange5" name="eat_out_frequency">
+        <p id="rangeValue3">4</p>
+        <label for="customRange6" class="form-label">In a typical month, how much do you spend on health, beauty and grooming products?</label>
+        <input type="range" class="form-range" min="0" max="30000" id="customRange6" name="health_beauty_spending">
+        <p id="rangeValue4">15000</p>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary next-button" >Find Out</button>
         </div>
-        <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Average Omnivore
-            </label>
-          </div>
-        </div>
-        <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Vegetarian
-            </label>
-          </div>
-            
-        </div>
-        <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Vegan
-            </label>
-          </div>
-        </div>>
-        
-            <div class="d-grid gap-2">
-            
-              
-              <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
-            </div>
-           
+      </div>  
       </div>
-
-      <div class="step" id="step4" style="display: none;">
-        <h2>Step 4: Do YOU?</h2>
-            <div class="mb-3">
-              <input class="form-check-input" type="checkbox" value="re" name="newspaper" id="flexCheckDefault">
-              <label for="recycle" class="form-check-label">Recycle Newspaper</label>
-            </div>
-            <div class="mb-3">
-              <input class="form-check-input" type="checkbox" value="re" name="Aluminium" id="flexCheckDefault">
-                <label for="recycle" class="form-check-label">Recycle Aluminium</label>
-            </div>
-            <div class="mb-3 ">
-              <input class="form-check-input" type="checkbox" value="re" name="Plastic" id="flexCheckDefault">
-                <label for="recycle" class="form-check-label">Recycle Plastic</label>
-                
-            </div>
-            <div class="mb-3" >
-              <input class="form-check-input" type="checkbox" value="re" name="Glass" id="flexCheckDefault">
-                <label for="recycle" class="form-check-label">Recycle Glass</label>
-                
-            </div>
-            <div class="d-grid gap-2">
-            
-            
-            <button type="submit" class="btn btn-primary next-button" >Find Out</button>
-          </div>
-          
-      </div>
-
     </form>
     </div>
-     
-
-      
     </div>
-
-
-
-  
   <script>
     
-    const steps = document.querySelectorAll('.step');
-    let currentStep = 0;
+    const steps1 = document.querySelectorAll('.step');
+    let currentStep1 = 0;
 
     function nextStep() {
-      steps[currentStep].style.display = 'none';
-      currentStep++;
-      steps[currentStep].style.display = 'block';
+      steps1[currentStep1].style.display = 'none';
+      currentStep1++;
+      steps1[currentStep1].style.display = 'block';
       
     }
-  </script>
+   
+</script>
+<script>
+
+  var rangeInput = document.getElementById("customRange2");
+
+  var rangeValue = document.getElementById("rangeValue");
+  
+
+  rangeInput.addEventListener("input", function() {
+      rangeValue.textContent = rangeInput.value;
+  });
+
+  var rangeInput1 = document.getElementById("customRange3");
+
+  var rangeValue1 = document.getElementById("rangeValue1");
+  
+
+  rangeInput1.addEventListener("input", function() {
+      rangeValue1.textContent = rangeInput1.value;
+  });
+
+  var rangeInput2 = document.getElementById("customRange4");
+
+  var rangeValue2 = document.getElementById("rangeValue2");
+  
+
+  rangeInput2.addEventListener("input", function() {
+      rangeValue2.textContent = rangeInput2.value;
+  });
+
+  var rangeInput3 = document.getElementById("customRange5");
+
+  var rangeValue3 = document.getElementById("rangeValue3");
+  
+
+  rangeInput3.addEventListener("input", function() {
+      rangeValue3.textContent = rangeInput3.value;
+  });
+
+  var rangeInput4= document.getElementById("customRange6");
+
+  var rangeValue4 = document.getElementById("rangeValue4");
+  
+
+  rangeInput4.addEventListener("input", function() {
+      rangeValue4.textContent = rangeInput4.value;
+  });
+</script>
+
 <%- include("partial/footer") -%>
