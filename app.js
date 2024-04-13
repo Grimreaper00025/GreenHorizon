@@ -213,6 +213,9 @@ app.get("/carbon-calculator", function(req, res){
 app.get("/savings", function(req, res){
     res.render("savings", {test:test});
 });
+app.get("/installation", function(req, res){
+    res.render("installation", {test:test});
+});
 
 app.post('/carbon-calculator', (req, res) => {
     console.log(req.body);
@@ -385,6 +388,25 @@ app.post("/savings", function(req,res)
     console.log(Years);
 
     res.render("result-savings",{Percentage:Percentage,test:test,Years:Years});
+});
+
+app.post("/installation",function(req,res)
+{
+    const coordinates = req.body.coordinates;
+    console.log('Received coordinates:', coordinates);
+    res.json({ message: 'Coordinates received successfully!' });
+
+    // const { getJson } = require("serpapi");
+    // getJson({
+    //   engine: "google_maps",
+    //   q: "Solar Panel Installers",
+    //   ll: "@40.7455096,-74.0083012,15.1z",
+    //   type: "search",
+    //   api_key: "f19eaa809ba2e4662bad9e6a8a999bc5738a7449e4269c8392220bf121391c2f"
+    // }, (json) => {
+    //   console.log(json["local_results"]);
+    // });
+
 });
 app.listen(3000,function()
 {
