@@ -1,109 +1,109 @@
 <%-include("partial/header") -%>
-  <div class=" calc-bg" >
-    <h1 class="sign-up-heading" style="text-align: center;">Calculate Your Carbon Credit</h1>
-      <div id="steps">
+  <div class=" calc-bg " style="background-image: url('/images/carbon-calculator.png'); background-repeat: no-repeat; background-size: cover;" >
+    <h1 class="sign-up-heading" style="text-align: center; color: white;">Calculate Your Carbon Credit</h1>
+      <div id="steps" class="steps1">
         <form action="/carbon-calculator" method="post">
         <div class="step" id="step1">
-          <h2>HouseHold</h2>
+          <h2 class=" form-hh" >HouseHold</h2>
               <div class="mb-3 calc-input">
-                <label for="numpeople" class="form-label">Number of people in your house</label>
+                <label for="numpeople" class="form-label form-t">People in your house</label>
                 <input type="number" class="form-control"  name="numpeople" aria-describedby="emailHelp">
               </div>
               <div class="mb-3 calc-input">
-                <label for="Size" class="form-label">Size of Housing</label>
+                <label for="Size" class="form-label form-t">Size of Housing(in Sq.ft)</label>
                 <input type="number" class="form-control" name="Size" id="exampleInputPassword1">
               </div>
-              <div class="mb-3 calc-input">
-                <label for="Electricity" class="form-label">Electricity consumption(Kwh/Month)</label>
+              <div class="mb-3 calc-input  form-t">
+                <label for="Electricity" class="form-label   form-t"> Electricity Consumption(kWh/Month)</label>
                 <input type="number" class="form-control"  name="Electricty" aria-describedby="emailHelp">
               </div>
-              <div class="mb-3 calc-input">
-                  <label for="Bedrooms" class="form-label">How many bedrooms does your house have?</label>
+              <div class="mb-3 calc-input  ">
+                  <label for="Bedrooms" class="form-label form-t">How many bedrooms does your house have?</label>
                   <input type="number" class="form-control" name="Bedrooms" id="exampleInputPassword1">
                 </div>
-                <label for="housing_type">Type of Housing:</label><br>
+                <label for="housing_type" class=" form-t" >Type of Housing:</label><br>
                   <select id="housing_type" name="housing_type" required>
                       <option value="stand_alone">Stand Alone</option>
                       <option value="flat">Flat</option>
                       <option value="shared">Shared</option>
                   </select><br>
-                  <label for="energy_improvements">Home Energy Efficiency Improvements:</label><br>
+                  <label for="energy_improvements" class=" form-t">Home Energy Efficiency Improvements:</label><br>
                   <input type="checkbox" id="solar_panel" name="solar_panel" value="solar_panel">
-                  <label for="solar_panel">Solar Panel Installation</label><br>
+                  <label for="solar_panel" class=" form-tt" >Solar Panel Installation</label><br>
                   
                   <input type="checkbox" id="solar_water_heater" name="solar_water_heater" value="solar_water_heater">
-                  <label for="solar_water_heater">Solar Water Heater</label><br>
+                  <label for="solar_water_heater" class=" form-tt" >Solar Water Heater</label><br>
                   
                   <input type="checkbox" id="other_clean_energy" name="other_clean_energy" value="other_clean_energy">
-                  <label for="other_clean_energy">Other Clean Energy Source</label><br>
+                  <label for="other_clean_energy" class=" form-tt" >Other Clean Energy Source</label><br>
                   
                   <input type="checkbox" id="energy_saving_bulbs" name="energy_saving_bulbs" value="energy_saving_bulbs">
-                  <label for="energy_saving_bulbs">Energy Saving Light Bulbs</label><br>
+                  <label for="energy_saving_bulbs" class=" form-tt" >Energy Saving Light Bulbs</label><br>
 
-                  <label for="Electronics">In the last 12 months, have you bought any of these new household items?</label><br>
+                  <label for="Electronics" class=" form-t"  >In the last 12 months, have you bought any of these new household items?</label><br>
                   <input type="checkbox" id="solar_panel" name="laptop" value="laptop">
-                  <label for="solar_panel">Laptop</label><br>
+                  <label for="solar_panel" class=" form-tt" >Laptop</label><br>
                   <input type="checkbox" id="solar_water_heater" name="tv" value="tv">
-                  <label for="solar_water_heater">T.V.</label><br>
+                  <label for="solar_water_heater" class=" form-tt" >T.V.</label><br>
                   <input type="checkbox" id="other_clean_energy" name="washing" value="washing">
-                  <label for="other_clean_energy">washing Machine</label><br>
+                  <label for="other_clean_energy" class=" form-tt" >washing Machine</label><br>
                   <input type="checkbox" id="energy_saving_bulbs" name="fridge" value="fridge">
-                  <label for="energy_saving_bulbs">Fridge</label><br>
+                  <label for="energy_saving_bulbs" class=" form-tt" >Fridge</label><br>
                   <input type="checkbox" id="energy_saving_bulbs" name="ac" value="ac">
-                  <label for="energy_saving_bulbs">A.C.</label><br>
+                  <label for="energy_saving_bulbs" class=" form-tt" >A.C.</label><br>
                   <input type="checkbox" id="energy_saving_bulbs" name="table" value="table">
-                  <label for="energy_saving_bulbs">Table</label><br>
+                  <label for="energy_saving_bulbs" class=" form-tt" >Table</label><br>
                <div class="d-grid gap-2">
-                  <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+                  <button type="button" class="btn btn-warning next-button" onclick="nextStep()">Next</button>
               </div>
          </div>
       <div class="step" id="step2" style="display: none;">
-        <h2>Transport</h2>
-            <label for="Vehicle">What type of vehicle you use most frequently?</label><br>
+         <div style="text-align: center;"><h2 class="form-hh" >Transport</h2></div>
+            <label for="Vehicle" class=" form-t">What type of vehicle you use most frequently?</label><br>
             <select id="Vehicle" name="Vehicle" required>
-                <option value="car">Car</option>
-                <option value="bike">Bike</option>
-                <option value="public">Public Transport</option>
-                <option value="e-car">Electric Car</option>
-                <option value="e-bike">Electric Bike</option>
-                <option value="walking">Walking</option>
-                <option value="cycle">Cycle</option>
+                <option value="car" class=" form-">Car</option>
+                <option value="bike" class=" form-">Bike</option>
+                <option value="public" class=" form-">Public Transport</option>
+                <option value="e-car" class=" form-">Electric Car</option>
+                <option value="e-bike" class=" form-">Electric Bike</option>
+                <option value="walking" class=" form-">Walking</option>
+                <option value="cycle" class=" form-">Cycle</option>
             </select><br>
-            <label for="customRange2" class="form-label">Average distance Travelled By all HouseHold Members(in Km)</label>
+            <div ><label for="customRange2" class="form-label form-t">Average distance Travelled By all HouseHold Members(in Km)</label></div>
             <input type="range" class="form-range" min="0" max="50" id="customRange2" name="distance_travelled">
-            <p id="rangeValue">25</p>
-            <label for="customRange3" class="form-label">Average flight hours of all house hold members(in hr)</label>
+            <p id="rangeValue" class=" form-tt">25</p>
+            <div><label for="customRange3" class="form-label form-t"  >Average flight hours of all house hold members(in hr)</label></div>
             <input type="range" class="form-range" min="0" max="30" id="customRange3" name="flight_hours">
-            <p id="rangeValue1">15</p>
+            <p id="rangeValue1" class="form-tt">15</p>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="offset_flights">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Do you offset Your Flights</label>
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="offset_flights" style="margin-top: 2.9%;">
+              <div class="form-t"><label class="form-check-label form-t" for="flexSwitchCheckDefault" >Do you offset Your Flights</label></div>
             </div>
 
             <div class="d-grid gap-2">
-              <button type="button" class="btn btn-primary next-button" onclick="nextStep()">Next</button>
+              <button type="button" class="btn btn-warning next-button" onclick="nextStep()">Next</button>
             </div>
       </div>
       <div class="step" id="step3" style="display: none;">
-        <h2>Lifestyle</h2>
-        <label for="housing_diet">What is Household preferrd Diet?</label><br>
+        <h2 class="form-hh" >Lifestyle</h2>
+        <label for="housing_diet" class=" form-t" style="color: white;">What is Household preferrd Diet?</label><br>
         <select id="housing_diet" name="housing_diet" required>
-            <option value="Meat_love">Meat lover</option>
-            <option value="Meat">Meat in some meals</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Vegan">Vegan</option>
+            <option value="Meat_love" class=" form-">Meat lover</option>
+            <option value="Meat" class=" form-">Meat in some meals</option>
+            <option value="Vegetarian" class=" form-">Vegetarian</option>
+            <option value="Vegan" class=" form-">Vegan</option>
         </select><br>
-        <label for="customRange4" class="form-label">In a typical month, how much do you spend on clothes and footwear?</label>
+        <label for="customRange4" class="form-label" > <div class="form-t">In a typical month, how much do you spend on clothes and footwear?</div></label>
         <input type="range" class="form-range" min="0" max="60000" id="customRange4" name="clothes_footwear_spending">
-        <p id="rangeValue2">30000</p>
-        <label for="customRange5" class="form-label">How many times a week does your family eat out?</label>
+        <p id="rangeValue2" class=" form-tt">30000</p>
+        <label for="customRange5" class="form-label"  ><div class="form-t">How many times a week does your family eat out?</div></label>
         <input type="range" class="form-range" min="0" max="7" id="customRange5" name="eat_out_frequency">
-        <p id="rangeValue3">4</p>
-        <label for="customRange6" class="form-label">In a typical month, how much do you spend on health, beauty and grooming products?</label>
+        <p id="rangeValue3" class=" form-tt" >4</p>
+        <label for="customRange6" class="form-label" ><div class="form-t">In a typical month, how much do you spend on health, beauty and grooming products?</div></label>
         <input type="range" class="form-range" min="0" max="30000" id="customRange6" name="health_beauty_spending">
-        <p id="rangeValue4">15000</p>
+        <p id="rangeValue4" class=" form-tt" >15000</p>
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary next-button" >Find Out</button>
+          <button type="submit" class="btn btn-warning next-button" >Find Out</button>
         </div>
       </div>  
       </div>

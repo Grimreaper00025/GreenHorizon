@@ -1,31 +1,41 @@
 <%- include("partial/header") -%>
 <div  style="background-image: url('/images/result-bg.png'); background-repeat: no-repeat; background-size: cover;">
 <h1 class="heading-result"><span >Go Solar,</span><span >Save Big</span></h1>
-<h2 class="heading-sub">See How Solar Saves You Money!"
+<h2 class="heading-sub" style="margin-bottom: 0;">See How Solar Saves You Money!"
 </h2>
 </div>
-<!-- <h1><%= Years %></h1> -->
-<div class="row">
-    <div class="col-lg-6">
-         <div style="padding-left: 40%; padding-top: 5%;"><img src="/images/piggy-bank.png" style="width: 35%;" alt=""></div>
-        <h1 class="h1r">
+<div >
+<div class="row s">
+    <div class="col-lg-6" style="padding: 5%; ">
+      <div class="engulf">
+        <h1 class="h1r ">
+          
+          <div style="padding-left: 40%; padding-top: 5%;"><img src="/images/piggy-bank.png" style="width: 35%;" alt=""></div>
             Slash Your Bills by Up To <span id="myNumber"><%= Percentage %> </span>%
         </h1>
     </div>
+  </div>
     <div class="col-lg-6">
         <div class="chart"><canvas id="myChart" ></canvas></div>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="chart"><canvas id="myChart1" ></canvas></div>
+        <div class="chart1"><canvas id="myChart1" ></canvas></div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 " style="padding: 3%;">
+      <div class="engulf1">
         <div style="padding-left: 40%; padding-top: 5%;"><img src="/images/earning.png" style="width: 35%;" alt=""></div>
         <h1 class="h2r">
-            Watch your investment replenish in just  <span id="myNum"><%= Years %> </span>years!
+          Grow your investment in <span id="myNum"><%= Years %> </span>years!
         </h1>
+      </div>
     </div>
+</div>
+<div class="saving-bg "> 
+  <h1 class="h11">Be Kind to Earth, Kind to Your Budget.</h1>
+  <div style="text-align: center; padding-bottom: 5%;"> <a href="/installation"><button  type="button" class="btn btn-warning btn-lg btn-block"  >Get Your Solar Quote Now!</button></a></div>
+</div>
 </div>
 
 
@@ -36,7 +46,6 @@
     console.log("Percentage:", <%= Percentage %>);
 
     const newCost = 100 - percentage;
-
 
     const ctx = document.getElementById('myChart').getContext('2d');
 
@@ -50,11 +59,11 @@
                 data: [originalCost, newCost],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.5)', 
-                    'rgba(75, 192, 192, 0.5)' 
+                    'rgba(88, 220, 0,0.5)' 
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',  
-                    'rgba(75, 192, 192, 1)'   
+                    'rgba(88, 220, 0,1)'   
                 ],
                 borderWidth: 1
             }]
@@ -87,8 +96,8 @@
     labels,
     datasets: [{
       label: 'Percentage Replenished',
-      backgroundColor: 'rgba(75, 192, 192, 0.5)', 
-      borderColor: 'rgba(75, 192, 192, 1)', 
+      backgroundColor: 'rgba(71, 173, 255,0.5)', 
+      borderColor: 'rgba(71, 173, 255,1)', 
       borderWidth: 1,
       data,
     }]
