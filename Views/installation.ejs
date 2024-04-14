@@ -1,8 +1,32 @@
 <%- include("partial/header") -%>
-<div class="container">
+
     <h1>Get User's Location</h1>
-    <button id="getLocationBtn">Get My Location</button>
-    <p id="locationInfo"></p>
-  </div>
-  <script src="script11.js"></script>
+    <form action="/installation" method="post">
+      <input type="text" class="form-control" id="Coord" name="coordinates">
+      <button type="button" class="btn btn-warning" id="GetLoc">Get My Location</button>
+      <div class="d-grid gap-2">
+          <button type="submit"  class="btn btn-warning">Submit</button>
+      </div>
+    </form>
+  <script >
+    document.addEventListener("DOMContentLoaded", function() {
+  const GetLocation = document.getElementById("GetLoc");
+  const CoordinatesIn = document.getElementById("Coord");
+
+  GetLocation.addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const coordinates = `${latitude}, ${longitude}`;
+        CoordinatesIn.value = coordinates;
+      }, function(error) {
+        console.error("Error getting location:", error.message);
+      });
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  });
+});
+  </script>
 <%- include("partial/footer") -%>

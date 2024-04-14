@@ -1,0 +1,96 @@
+
+<%- include("partial/header") -%>
+<style>
+    /* Style for installer list */
+    .installerList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
+    /* Style for individual installer */
+    .installer {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      width: calc(33.33% - 20px);
+      box-sizing: border-box; /* To include padding and border in element width */
+    }
+  
+    .installer h2 {
+      margin-top: 0;
+      font-family: 'oswald';
+      font-weight: 600;
+      font-size: 25px;
+    }
+  
+    .installer p {
+      margin: 5px 0;
+      font-family: 'roboto';
+      
+    }
+  
+    .installer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  
+    .installer a:hover {
+      text-decoration: underline;
+    }
+    .installer img {
+    max-width: 40%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+  @media (max-width: 768px) {
+    .installerList {
+      flex-direction: column; /* Stack installers vertically on smaller screens */
+      margin: 0; /* Remove negative margin */
+    }
+
+    .installer {
+      width: 100%; /* Make installers full width on smaller screens */
+    }
+  }
+  </style>
+<div class="installerList">
+
+  </div>
+<%- include("partial/footer") -%>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const installers = <%- JSON.stringify(topInstallers) %>;
+    const installerList = document.querySelector('.installerList');
+
+
+    function createInstallerElement(installer) {
+      const installerElement = document.createElement('div');
+      installerElement.classList.add('installer');
+
+
+      installerElement.innerHTML = `
+      <img src="/images/logo1.png" alt="${installer.name} Photo">
+        <h2>${installer.name}</h2>
+        <p>• 📞 : ${installer.phone}</p>
+        
+        <p>• Reviews : ${installer.reviews}</p>
+        <p>• Rating : ${installer.rating}</p>
+        <p>• Website: <a href="${installer.website}" target="_blank">${installer.website}</a></p>
+        <p>• User Review: ${installer.userReview}</p>
+      `;
+
+      return installerElement;
+    }
+
+
+    installers.forEach(function(installer) {
+      const installerElement = createInstallerElement(installer);
+      installerList.appendChild(installerElement);
+    });
+  });
+
+</script>

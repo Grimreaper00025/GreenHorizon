@@ -390,24 +390,157 @@ app.post("/savings", function(req,res)
     res.render("result-savings",{Percentage:Percentage,test:test,Years:Years});
 });
 
-app.post("/installation",function(req,res)
-{
-    const coordinates = req.body.coordinates;
-    console.log('Received coordinates:', coordinates);
-    res.json({ message: 'Coordinates received successfully!' });
+// app.post("/installation",function(req,res)
+// {
+//     const coordinates = req.body.coordinates;
+//     console.log('Received coordinates:', coordinates);
+//     res.json({ message: 'Coordinates received successfully!' });
 
-    // const { getJson } = require("serpapi");
-    // getJson({
-    //   engine: "google_maps",
-    //   q: "Solar Panel Installers",
-    //   ll: "@40.7455096,-74.0083012,15.1z",
-    //   type: "search",
-    //   api_key: "f19eaa809ba2e4662bad9e6a8a999bc5738a7449e4269c8392220bf121391c2f"
-    // }, (json) => {
-    //   console.log(json["local_results"]);
-    // });
+//     const { getJson } = require("serpapi");
+//     getJson({
+//       engine: "google_maps",
+//       q: "Solar Panel Installers",
+//       ll: "@40.7455096,-74.0083012,15.1z",
+//       type: "search",
+//       api_key: "f19eaa809ba2e4662bad9e6a8a999bc5738a7449e4269c8392220bf121391c2f"
+//     }, (json) => {
+//       console.log(json["local_results"]);
+//     });
+//     const localResults = json["local_results"];
+//     const topInstallers = [];
 
+//     // Iterate over the local_results array
+//     for (let i = 0; i < Math.min(4, localResults.length); i++) {
+//         const installer = localResults[i];
+        
+//         // Extract required information
+//         const name = installer.title;
+//         const phone = installer.phone;
+//         const reviews = installer.reviews;
+//         const rating = installer.rating;
+//         const website = installer.website;
+//         const userReview = installer.user_review;
+
+//         // Store information in an object
+//         const installerInfo = {
+//             name,
+//             phone,
+//             reviews,
+//             rating,
+//             website,
+//             userReview
+//         };
+
+//         // Add installer info to the topInstallers array
+//         topInstallers.push(installerInfo);
+//     }
+
+//     // Now topInstallers array contains information about the top 4 installers
+//     console.log(topInstallers);
+
+// });
+
+// app.post("/installation", function(req, res) {
+//     const coordinates = req.body.coordinates;
+//     console.log('Received coordinates:', coordinates);
+//     const { getJson } = require("serpapi");
+//     const [latitude, longitude] = coordinates.split(',');
+//     console.log(latitude);
+//     const string="@"+latitude+","+longitude+","+"15.1z";
+
+//     getJson({
+//       engine: "google_maps",
+//       q: "Solar Panel",
+//       ll: string,
+//       type: "search",
+//       api_key: "f19eaa809ba2e4662bad9e6a8a999bc5738a7449e4269c8392220bf121391c2f"
+//     }, (json) => {
+//       console.log(json["local_results"]);
+//       const localResults = json.local_results || [];
+//         const topInstallers=[];
+
+
+//         for (let i = 0; i < Math.min(4, localResults.length); i++) {
+//             const installer = localResults[i];
+            
+
+//             const name = installer.title;
+//             const phone = installer.phone;
+//             const reviews = installer.reviews;
+//             const rating = installer.rating;
+//             const website = installer.website;
+//             const userReview = installer.user_review;
+
+
+//             const installerInfo = {
+//                 name,
+//                 phone,
+//                 reviews,
+//                 rating,
+//                 website,
+//                 userReview
+//             };
+
+//             // Add installer info to the topInstallers array
+//             topInstallers.push(installerInfo);
+//         }
+
+//         // Now topInstallers array contains information about the top 4 installers
+//         console.log('Top installers:', topInstallers);
+
+//         res.render("installation",{test:test,topInstallers:topInstallers});
+    
+//     }); 
+//     });
+
+
+app.post("/installation",function(req,res){
+    var Coordinates = req.body.coordinates;
+    const [latitude, longitude] = Coordinates.split(',');
+    var location= "@"+latitude+","+longitude+","+"15.1z";
+    var topInstallers =[];
+    const { getJson } = require("serpapi");
+  getJson({
+    engine: "google_maps",
+    q: "solar panel installation ",
+    ll: location,
+    type: "search",
+
+    api_key: "f19eaa809ba2e4662bad9e6a8a999bc5738a7449e4269c8392220bf121391c2f"
+  }, (json) => {
+    console.log(json["local_results"]);
+      const localResults = json.local_results || [];
+        const topInstallers=[];
+
+
+        for (let i = 0; i < Math.min(5, localResults.length); i++) {
+            const installer = localResults[i];
+            
+
+            const name = installer.title;
+            const phone = installer.phone;
+            const reviews = installer.reviews;
+            const rating = installer.rating;
+            const website = installer.website;
+            const userReview = installer.user_review;
+
+
+            const installerInfo = {
+                name,
+                phone,
+                reviews,
+                rating,
+                website,
+                userReview
+            };
+            topInstallers.push(installerInfo);}
+     
+     res.render("install",{topInstallers:topInstallers,test:test});
+     
+  });
 });
+
+
 app.listen(3000,function()
 {
     console.log("Server Started on port on 3000");
