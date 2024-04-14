@@ -1120,4 +1120,37 @@ body {
     width: 100%;
     
 }
-/* news-additional */
+/* send email */
+#email
+{
+    padding:5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.email-title
+{
+    text-align: center;
+    font-family: "poppins";
+    font-weight: 700;
+    font-size: 45px;
+}
+.lower
+{
+    font-family: "roboto";
+    font-weight:400;
+    font-size: 20px;
+}
+#email-bt
+{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #258c66;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+#email-bt:hover{
+    background-color: #e2dbdb;
+}
