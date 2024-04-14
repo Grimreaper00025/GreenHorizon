@@ -1,31 +1,31 @@
 <%- include("partial/header") -%>
-<div class="imagebg">
+<div class="imagebg" style="background-image: url('/images/carbon-calculator.png');">
   <div style="text-align: center;">
-    <h1 class="sign-up-heading">Sign Up</h1>
+    <h1 class="sign-up-heading" style="color: white; font-size: 60px;">Sign Up</h1>
     <a href="#"><img src="/images/google.png" style="width: 10%; padding: 2%; margin-bottom: 4%;" alt=""></a>
     <a href="#"><img src="/images/linkedin.png"  style="width: 10%; padding:2%; margin-bottom: 4%;"></a>
     <a href="#"><i class="fa-brands fa-facebook fa-6x sign-icon" style="color: #1877F2; "></i></a>
   </div>
-  <div class="signup">
+  <div class="signup" >
     <form class="sign-up-form" action="/signup" method="post">
       <div class="form-group mb-3">
-        <label for="name" class="form-label">Name</label>
+        <label for="name" class="form-label" style="color: white;">Name</label>
         <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="form-group mb-3">
-        <label for="mobno" class="form-label">Mobile No.</label>
+        <label for="mobno" class="form-label"  style="color: white;">Mobile No.</label>
         <input type="tel" class="form-control" id="mobno" name="mobno" pattern="[0-9]{10}" required>
       </div>
       <div class="form-group mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label"  style="color: white;">Username</label>
         <input type="text" class="form-control" id="username" name="username" required>
       </div>
       <div class="form-group mb-3">
-        <label for="email" class="form-label">E-mail</label>
+        <label for="email" class="form-label"  style="color: white;">E-mail</label>
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
       </div>
       <div class="form-group mb-3">
-        <label for="gender" class="form-label">Gender</label>
+        <label for="gender" class="form-label"  style="color: white;">Gender</label>
         <select class="form-select" id="gender" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -33,21 +33,21 @@
         </select>
       </div>
       <div class="form-group mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label"  style="color: white;">Password</label>
         <input type="password" class="form-control" id="password" name="password" required>
       </div>
       <div class="form-group mb-3">
-        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <label for="confirmPassword" class="form-label"  style="color: white;">Confirm Password</label>
         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
       </div>
       <div class="form-check mb-3">
         <input type="checkbox" class="form-check-input" id="termscheck" required>
-        <label class="form-check-label" for="termscheck">I agree to the terms and conditions</label>
+        <label class="form-check-label" for="termscheck"  style="color: white;">I agree to the terms and conditions</label>
       </div>
       <div class="d-grid gap-2" style="margin-top: 1rem;">
-        <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" class="btn btn-warning">Sign Up</button>
       </div>
-      <div class="d-grid gap-2" style="text-align: center; margin-top: 1rem;">
+      <div class="d-grid gap-2" style="text-align: center; margin-top: 1rem; color: white;">
         <p>Already have an Account? <a href="/login">Log In</a></p>
       </div>
     </form>

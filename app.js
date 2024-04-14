@@ -36,7 +36,7 @@ app.set('trust proxy', 1);
 
 
 app.use(session({
-    secret: 'foo',
+    secret: 'TooToo',
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: 'mongodb+srv://inficos0520:yj9vtx3zJhYSgw6i@gh.zc3syn3.mongodb.net/?retryWrites=true&w=majority&appName=GH/userDB' })
@@ -116,6 +116,18 @@ app.get("/signup",function(req,res)
 app.get("/login",function(req,res)
 {
     res.render("login", { test: test });
+});
+
+app.post("/logout", function(req, res) {
+
+    req.session.destroy(function(err) {
+        if (err) {
+            console.error("Error destroying session:", err);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+       
+        res.redirect("/login");
+    });
 });
 
 if (test===0)

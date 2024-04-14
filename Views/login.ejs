@@ -1,23 +1,23 @@
 <%-include("partial/header") -%>
-<div class="imagebg">
-    <center>
-        <h1 class="sign-up-heading">Log In</h1>
-        <a href=""><i class="fa-brands fa-google fa-4x sign-icon" style="color: white;"></i></a>
-        <a href=""><i class="fa-brands fa-github fa-4x sign-icon" style="color: white;"></i></a>
-        <a href=""><i class="fa-brands fa-facebook fa-4x sign-icon" style="color: white;"></i></a>
-    </center>
-    <div class="signup">
+<div class="imagebg"style="background-image: url('/images/carbon-calculator.png');">
+    <div style="text-align: center;">
+        <h1 class="sign-up-heading" style="color: white; font-size: 60px;">Log In</h1>
+    <a href="#"><img src="/images/google.png" style="width: 10%; padding: 2%; margin-bottom: 4%;" alt=""></a>
+    <a href="#"><img src="/images/linkedin.png"  style="width: 10%; padding:2%; margin-bottom: 4%;"></a>
+    <a href="#"><i class="fa-brands fa-facebook fa-6x sign-icon" style="color: #1877F2; "></i></a>
+    </div>
+    <div class="signup1">
         <form class="sign-up-input  sign-up" action="/login" method="post">
             <div class="mb-3">
-                <label for="username" class="form-label sign-up-label">Username</label>
+                <label for="username" class="form-label sign-up-label" style="color: white;">Username</label>
                 <input type="text" class="form-control" id="loginUsername" name="loginUsername" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label sign-up-label">Password</label>
+                <label for="password" class="form-label sign-up-label"  style="color: white;">Password</label>
                 <input type="password" class="form-control" id="loginPassword" name="loginPassword" required>
             </div>
             <div class="d-grid gap-2">            
-                <button type="submit" class="btn btn-success">Log In</button>
+                <button type="submit" class="btn btn-warning">Log In</button>
             </div>
         </form>
     </div>

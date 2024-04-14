@@ -176,13 +176,22 @@
 }
 
 .signup {
-    width: 30%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(1, 1, 1, 0.6);
     border-radius: 4%;
-    padding: 3%;
+    padding: 6%;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.signup1 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(1, 1, 1, 0.6);
+  border-radius: 4%;
+  padding: 0%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
 .sign-up-input {
