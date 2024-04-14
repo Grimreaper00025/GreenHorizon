@@ -1,34 +1,37 @@
 <%- include("partial/header") -%>
 
-    <div class="card" style="width: 20rem; margin: auto; margin-top: 5%;margin-bottom: 5%; border-radius: 5%; background-color: rgb(255, 255, 242);">
-        <div>
-            <% if (user && user.gender === 'male') { %>
-                <img src="/images/profile.png" alt="Male Avatar" class="card-img-top"  style="padding: 5%;">
-            <% } else if (user && user.gender === 'female') { %>
-                <img src="/images/human.png" alt="Female Avatar" class="card-img-top"  style="padding: 5%;" >
-            <% } else { %>
-                <img src="/images/profile.jpg" alt="Default Avatar" class="card-img-top" style="padding: 5%;" >
-            <% } %>
-        </div>
-        <div class="card-body">
-            <% if (user) { %>
-            <h1 style="font-family: 'oswald '; font-size: 50px; font-weight: 700;">Hello <%= user.name %> </h1>
-                <div class="user-data">
-                    <p style="font-family: 'roboto'; font-size: 20px;">Mobile Number: <%= user.mobno %></p>
-                    <p style="font-family: 'roboto'; font-size: 20px;">Username:<%= user.username %></p>
-                    <p style="font-family: 'roboto'; font-size: 20px;">Email: <%= user.email %></p>
-                </div>
-            <% } else { %>
-                <p>No user data found.</p>
-            <% } %>
-            
-            <form action="/logout" method="POST">
-                <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-warning">Logout</button>
+   
+      <div style="background-image: url('/images/profile-bg.jpg'); background-repeat: no-repeat; background-size: cover; padding-top: 5%;padding-bottom: 5%;">
+        <div class="card" style="width: 20rem; margin: auto;  border-radius: 5%; background-color: rgba(255, 250, 242, 0.7);">
+            <div>
+                <% if (user && user.gender === 'male') { %>
+                    <img src="/images/profile.png" alt="Male Avatar" class="card-img-top"  style="padding: 5%;">
+                <% } else if (user && user.gender === 'female') { %>
+                    <img src="/images/human.png" alt="Female Avatar" class="card-img-top"  style="padding: 5%;" >
+                <% } else { %>
+                    <img src="/images/profile.jpg" alt="Default Avatar" class="card-img-top" style="padding: 5%;" >
+                <% } %>
             </div>
-            </form>
-            
-        </div>
+            <div class="card-body">
+                <% if (user) { %>
+                <h1 style="font-family: 'oswald '; font-size: 50px; font-weight: 700;">Hello <%= user.name %> </h1>
+                    <div class="user-data">
+                        <p style="font-family: 'roboto'; font-size: 20px;">Mobile Number: <%= user.mobno %></p>
+                        <p style="font-family: 'roboto'; font-size: 20px;">Username:<%= user.username %></p>
+                        <p style="font-family: 'roboto'; font-size: 20px;">Email: <%= user.email %></p>
+                    </div>
+                <% } else { %>
+                    <p>No user data found.</p>
+                <% } %>
+                
+                <form action="/logout" method="POST">
+                    <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-warning">Logout</button>
+                </div>
+                </form>
+                
+            </div>
+          </div>
       </div>
 
 
