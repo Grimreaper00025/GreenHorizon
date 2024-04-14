@@ -513,7 +513,7 @@ app.post("/installation",function(req,res){
         const topInstallers=[];
 
 
-        for (let i = 0; i < Math.min(5, localResults.length); i++) {
+        for (let i = 0; i < Math.min(6, localResults.length); i++) {
             const installer = localResults[i];
             
 

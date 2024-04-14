@@ -1,21 +1,27 @@
 
 <%- include("partial/header") -%>
+<div  style="background-image: url('/images/result-bg.png'); background-repeat: no-repeat; background-size: cover; padding-bottom: 5%;">
+    <h1 class="heading-result" style="size: 60px;"> Solar Panel Dealers Near You</h1>
+    </h2>
+    </div>
 <style>
-    /* Style for installer list */
+
     .installerList {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
   
-    /* Style for individual installer */
+
     .installer {
-      background-color: #f9f9f9;
+      background-color: #fff7dd;
       border: 1px solid #ddd;
       border-radius: 5px;
       padding: 20px;
       width: calc(33.33% - 20px);
-      box-sizing: border-box; /* To include padding and border in element width */
+      box-sizing: border-box; 
+      margin-bottom: 1%;
+      margin-top: 2%;
     }
   
     .installer h2 {
@@ -48,12 +54,11 @@
   }
   @media (max-width: 768px) {
     .installerList {
-      flex-direction: column; /* Stack installers vertically on smaller screens */
-      margin: 0; /* Remove negative margin */
+      flex-direction: column; 
     }
 
     .installer {
-      width: 100%; /* Make installers full width on smaller screens */
+      width: 100%; 
     }
   }
   </style>
