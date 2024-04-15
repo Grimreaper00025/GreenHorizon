@@ -1,7 +1,7 @@
 # GreenHorizon
-https://greenhorizon.onrender.com/
-/There is an error in the deployed version of website ,landing page animation is not being loaded please refer the video to see Demo of the Website
-/Drive Link :https://drive.google.com/file/d/1aEkHwx80JXmPe3tA8KC8K9fdwWFh1yka/view?usp=sharing
+https://greenhorizon.onrender.com/  <br>
+There is an error in the deployed version of website ,landing page animation is not being loaded please refer the video to see Demo of the Website <br>
+Drive Link :https://drive.google.com/file/d/1aEkHwx80JXmPe3tA8KC8K9fdwWFh1yka/view?usp=sharing
 ## Team:
 Vishal Shahi
 ## Description:
