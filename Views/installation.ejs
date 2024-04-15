@@ -8,7 +8,7 @@
     </h3>
   </div>
   <div class="row">
-    <div class="col-lg-6"  style="padding: 3%;padding-below: 0;">
+    <div class="col-lg-6"  style="padding: 3%;padding-bottom: 0;">
       <h1 class="heading-explain" style="padding-left: 5%; padding-top: 20%;">1. Calculating your Power Requirements</h1>
       <p class="paraa" style="padding-left: 5%;  font-size: 20px;">
         To determine the appropriate size of your solar energy system, it is essential to analyze your power requirements. Start by evaluating your electricity bills to understand your monthly and annual energy consumption. Consider your future plans, such as potential increases in energy usage or the addition of electric vehicles. A well-designed solar energy system should be able to meet your current and future power requirements effectively.
@@ -48,8 +48,14 @@
       <div class="card card1" style="padding: 5%; border-radius: 5%; padding-top: 0; background-color: rgb(255, 240, 211);">
         <h1 style="text-align: center; font-family: 'poppins'; font-weight: 700; font-size: 50px; margin-top: 20%; margin-bottom: 5%;">Find Sunshine Dealers In Your Area</h1>
     <form action="/installation" method="post">
-      <input type="text" class="form-control" id="Coord" name="coordinates" style="display:none;">
+      <input type="text" class="form-control" id="Coordinates" name="coordinates" style="display:none;">
       <div style="text-align: center;"><button type="button" class="btn btn-warning" id="GetLoc" style="--bs-btn-padding-x:10%" >1. Get My Location 📍</button></div>
+      <div id="spinnerContainer" style="display: none; text-align: center; padding-top: 3%;">
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div id="locationMessage"></div>
       <p style="text-align: center; font-family: 'oseald'; font-weight: 800; font-size: 70px;">↓</p>
       <div style="text-align: center;">
           <button type="submit"  class="btn btn-warning">2. Find Solar Panel Dealers Near Me</button>
@@ -65,20 +71,24 @@
   <script >
     document.addEventListener("DOMContentLoaded", function() {
   const GetLocation = document.getElementById("GetLoc");
-  const CoordinatesIn = document.getElementById("Coord");
+  const CoordinatesIn = document.getElementById("Coordinates");
+
 
   GetLocation.addEventListener("click", function() {
+    document.getElementById("spinnerContainer").style.display = "block";
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const coordinates = `${latitude}, ${longitude}`;
         CoordinatesIn.value = coordinates;
+        document.getElementById("spinnerContainer").style.display = "none";
+        document.getElementById("locationMessage").innerHTML = "<p>Your location has been received! </p>";
       }, function(error) {
         console.error("Error getting location:", error.message);
       });
     } else {
-      console.error("Geolocation is not supported by this browser.");
+      console.error("Location is not supported.");
     }
   });
 });

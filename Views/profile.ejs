@@ -1,6 +1,4 @@
 <%- include("partial/header") -%>
-
-   
       <div style="background-image: url('/images/profile-bg.jpg'); background-repeat: no-repeat; background-size: cover; padding-top: 5%;padding-bottom: 5%;">
         <div class="card" style="width: 20rem; margin: auto;  border-radius: 5%; background-color: rgba(255, 250, 242, 0.7);">
             <div>
@@ -23,13 +21,11 @@
                 <% } else { %>
                     <p>No user data found.</p>
                 <% } %>
-                
                 <form action="/logout" method="POST">
                     <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-warning">Logout</button>
                 </div>
                 </form>
-                
             </div>
           </div>
       </div>

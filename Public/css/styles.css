@@ -1,4 +1,4 @@
-/* Navbar styles */
+/* Navbar */
 .navbar {
     background-color: #f8f9fa;
 }
@@ -92,9 +92,8 @@
 	text-transform: uppercase;
 	letter-spacing: 3px;
 }
-.footer-bs .footer-social li { padding:5px 4px;}
-.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
-.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+ .footer-bs .footer-social li { padding:5px 4px;}
+
 
 .footer-bs .footer-ns h4 {
 	font-size: 11px;
@@ -108,67 +107,9 @@
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
 }
 
-.newsletter-section {
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #f8f9fa;
-    text-align: center;
-}
 
-.newsletter-section p {
-    margin-bottom: 15px;
-}
-
-.newsletter-section form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.newsletter-section input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.newsletter-section button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.newsletter-section button:hover {
-    background-color: #0056b3;
-}
-/* contact */
-.contact-text{
-    float: right;
-}
-.contact-card{
-    padding-top: 7%;
-    padding-bottom: 7%;
-    padding-left: 9%;
-    padding-right: 9%;
-}
-.fa-linkedin{
-    color:  #0A66C2;
-}
-.fa-linkedin:hover{
-    color: rgb(47, 47, 137);
-}
-.left{
-    padding-right: 9%;
-}
 /* signup */
 .imagebg {
-    background-image: url("/images/bg-6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 5%;
@@ -412,8 +353,6 @@ margin-top: 5%;
         text-align: left;
         margin-bottom: 10%;
     }
-    /* Testimonials */
-    /* carousel */
 
 #testimonials{
     
@@ -502,8 +441,8 @@ margin-top: 5%;
 }
 /* newsletter */
 #newsletter {
-    background: linear-gradient(to right, #FF7000, #FFAB68); /* Bright green to clear blue gradient */
-    color: #fff; /* White text color for contrast */
+    background: linear-gradient(to right, #FF7000, #FFAB68); 
+    color: #fff; 
     padding: 50px 0;
 
 }
@@ -511,7 +450,7 @@ margin-top: 5%;
 
 
 .btn:hover {
-    background-color: #ff7700; /* Darker yellow on hover */
+    background-color: #ff7700;
     color: white;
 
 }
@@ -552,11 +491,11 @@ margin-top: 5%;
     color: #949292;
 }
 
-/* Customizing the main heading */
+
 .news-section .header-title-1 {
     font-size: 36px;
     font-weight: 700;
-    color: #333; /* Change the color as needed */
+    color: #333; 
     text-align: center;
     margin-bottom: 20px;
 }
@@ -564,7 +503,7 @@ margin-top: 5%;
 .news-section .header-title-2 {
     font-size: 24px;
     font-weight: 400;
-    color: #666; /* Change the color as needed */
+    color: #666; 
     text-align: center;
     margin-bottom: 40px;
 }
@@ -599,7 +538,7 @@ margin-top: 5%;
     overflow: hidden;
     white-space: nowrap;
   }
- /* carbon calculat */
+ /* carbon calculator */
  .container {
     width: 50%;
     margin: 50px auto;
@@ -731,9 +670,9 @@ body {
 
 #bad {
   width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 110px; /* 100px of height + 10px of border */
-  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  height: 100px; 
+  border-top-left-radius: 110px; 
+  border-top-right-radius: 110px; 
   border: 10px solid #ff6364;
   border-bottom: 0;
   clip-path: polygon(0 0, 45% 0, 48% 100%, 0% 100%);
@@ -742,9 +681,9 @@ body {
 
 #poor {
   width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 110px; /* 100px of height + 10px of border */
-  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  height: 100px; 
+  border-top-left-radius: 110px; 
+  border-top-right-radius: 110px; 
   border: 10px solid #ff883a;
   border-bottom: 0;
   clip-path: polygon(69% 0, 45% 0, 48% 100%, 49% 100%);
@@ -753,9 +692,9 @@ body {
 
 #fair {
   width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 110px; /* 100px of height + 10px of border */
-  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  height: 100px;
+  border-top-left-radius: 110px; 
+  border-top-right-radius: 110px; 
   border: 10px solid #fdd42d;
   border-bottom: 0;
   clip-path: polygon(69% 0, 100% 20%, 48% 100%, 49% 100%);
@@ -764,9 +703,9 @@ body {
 
 #good {
   width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 110px; /* 100px of height + 10px of border */
-  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  height: 100px;
+  border-top-left-radius: 110px; 
+  border-top-right-radius: 110px; 
   border: 10px solid #0192f5;
   border-bottom: 0;
   clip-path: polygon(100% 61%, 100% 20%, 48% 100%, 49% 100%);
@@ -775,9 +714,9 @@ body {
 
 #excellent {
   width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 110px; /* 100px of height + 10px of border */
-  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  height: 100px; 
+  border-top-left-radius: 110px; 
+  border-top-right-radius: 110px; 
   border: 10px solid #3fd796;
   border-bottom: 0;
   clip-path: polygon(100% 61%, 100% 100%, 48% 100%, 49% 100%);
@@ -862,7 +801,7 @@ body {
 .steps
 {
     border-color: #000;
-    border: 0px solid ; /* Add border with 2px width and color #ccc */
+    border: 0px solid ;
   padding: 5%;
   margin: 10%;
   margin-bottom: 0;
@@ -873,7 +812,7 @@ body {
 .steps1
 {
     border-color: #ffffff;
-    border: 0 solid ; /* Add border with 2px width and color #ccc */
+    border: 0 solid ; 
   padding: 5%;
   margin: 10%;
   margin-bottom: 0;
@@ -1154,3 +1093,11 @@ body {
 #email-bt:hover{
     background-color: #e2dbdb;
 }
+#locationMessage{
+  text-align: center;
+  font-family: "oswald";
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 2%;
+}
+

@@ -28,8 +28,6 @@ app.set('views', path.join(__dirname, 'Views'));
 app.use('/form', express.static(__dirname + '/index.html'));
 
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("Public"));
 app.set('trust proxy', 1);
@@ -45,21 +43,21 @@ app.use(session({
 
 app.use(function(req, res, next) {
     if (!req.session) {
-        return next(new Error('Oh no'))
+        return next(new Error('Error'))
     }
     next();
 });
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log("Connected to MongoDB!");
+    console.log("Connected to MongoDB!!");
 });
 
 module.exports = db;
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "can't be blank"]
+        required: [true, "can't be empty"]
      },
     mobno: {
         type: Number,
@@ -70,14 +68,14 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         lowercase: true,
-        required: [true, "can't be blank"],
+        required: [true, "can't be empty"],
         index: true,
         unique: true
      },
      email: {
         type: String,
         lowercase: true,
-        required: [true, "can't be blank"],
+        required: [true, "can't be empty"],
         match: [/\S+@\S+\.\S+/, 'is invalid'],
         index: true
      },
@@ -125,7 +123,6 @@ app.post("/logout", function(req, res) {
             console.error("Error destroying session:", err);
             return res.status(500).json({ error: "Internal Server Error" });
         }
-       
         res.redirect("/login");
     });
 });
@@ -191,7 +188,7 @@ app.post("/login", async function (req, res) {
         if (isPasswordMatch) {
           
             test=1;
-            console.log("User authenticated successfully");
+            console.log("Authentication successfully");
             res.redirect("/");
         } else {
 
@@ -421,11 +418,10 @@ app.post("/savings", function(req,res)
 //     const localResults = json["local_results"];
 //     const topInstallers = [];
 
-//     // Iterate over the local_results array
 //     for (let i = 0; i < Math.min(4, localResults.length); i++) {
 //         const installer = localResults[i];
         
-//         // Extract required information
+//         
 //         const name = installer.title;
 //         const phone = installer.phone;
 //         const reviews = installer.reviews;
@@ -443,11 +439,11 @@ app.post("/savings", function(req,res)
 //             userReview
 //         };
 
-//         // Add installer info to the topInstallers array
+//         
 //         topInstallers.push(installerInfo);
 //     }
 
-//     // Now topInstallers array contains information about the top 4 installers
+//     
 //     console.log(topInstallers);
 
 // });
@@ -482,8 +478,6 @@ app.post("/savings", function(req,res)
 //             const rating = installer.rating;
 //             const website = installer.website;
 //             const userReview = installer.user_review;
-
-
 //             const installerInfo = {
 //                 name,
 //                 phone,
@@ -493,11 +487,11 @@ app.post("/savings", function(req,res)
 //                 userReview
 //             };
 
-//             // Add installer info to the topInstallers array
+
 //             topInstallers.push(installerInfo);
 //         }
 
-//         // Now topInstallers array contains information about the top 4 installers
+
 //         console.log('Top installers:', topInstallers);
 
 //         res.render("installation",{test:test,topInstallers:topInstallers});
@@ -551,7 +545,6 @@ app.post("/installation",function(req,res){
      
   });
 });
-
 
 app.listen(3000,function()
 {
