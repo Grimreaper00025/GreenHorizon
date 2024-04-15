@@ -38,4 +38,5 @@ Run the following command to start the server:
 6. **Run Local Host:**  
 Open your browser and navigate to `localhost:port` (replace `port` with the port number specified in your `app.js` file) to access the application.
 
+[![Video](https://youtu.be/HjZd7tm7c1o)](https://youtu.be/HjZd7tm7c1o)
 
