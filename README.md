@@ -11,7 +11,7 @@ It is platform that educates users about the benefits of renewable energy source
    First, you need to clone the repository to your local machine. Open your terminal or command prompt and run the following command:
 
 ######
-    https://github.com/Grimreaper00025/GreenHorizon
+     git clone  https://github.com/Grimreaper00025/GreenHorizon
 2. **Navigate to the Repository Folder:**  
 Change your directory to the cloned repository:
 
