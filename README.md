@@ -1,6 +1,8 @@
 # GreenHorizon
 https://greenhorizon.onrender.com/  <br>
 There is an error in the deployed version of website ,landing page animation is not being loaded please refer the video to see Demo of the Website <br>
+## Demo:
+https://github.com/Grimreaper00025/GreenHorizon/assets/146577006/768a6e66-3ef0-469f-9700-abc1a98db679
 ## Drive Link :
 https://drive.google.com/file/d/1aEkHwx80JXmPe3tA8KC8K9fdwWFh1yka/view?usp=sharing
 ## Team:
@@ -23,6 +25,8 @@ Change your directory to the cloned repository:
 3. **Install MongoDB and Configure:**  
 Install MongoDB if not already installed. Change the links in `app.js` to your localhost link for MongoDB.
 
+
+
 4. **Install Dependencies:**  
 Install project dependencies by running:
 
@@ -38,7 +42,7 @@ Run the following command to start the server:
 
 
 6. **Run Local Host:**  
-Open your browser and navigate to `localhost:port` (replace `port` with the port number specified in your `app.js` file) to access the application.
+Open your browser and navigate to `localhost:3000` to access the application.
 
 
 
