@@ -1,6 +1,7 @@
 # GreenHorizon
 https://greenhorizon.onrender.com/
-
+There is an error in the deployed version of website ,landing page animation is not being loaded please refer the video to see Demo of the Website
+Drive Link :https://drive.google.com/file/d/1aEkHwx80JXmPe3tA8KC8K9fdwWFh1yka/view?usp=sharing
 ## Team:
 Vishal Shahi
 ## Description:
@@ -38,5 +39,5 @@ Run the following command to start the server:
 6. **Run Local Host:**  
 Open your browser and navigate to `localhost:port` (replace `port` with the port number specified in your `app.js` file) to access the application.
 
-[![Video](https://youtu.be/HjZd7tm7c1o)](https://youtu.be/HjZd7tm7c1o)
+
 
